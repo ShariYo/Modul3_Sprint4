@@ -1,0 +1,10 @@
+- deleted columns with NaN values > 40%
+- changed binary-numeric features to categorical dtype
+- imputed NaNs with values using SimpleImputer
+- after imputation, features that changed to float, was reversed again to int
+- got active credits from df_bureau and merged with df_train
+- got sums of credit debts from df_bureau and merged with df_train. Transformed to ocbject with 3 classes
+- got sums of prolonged credits from df_bureau and merged with df_train. Change to dtype > object
+- created new feature "credit_to_income" and made categorical data with classes
+
+
