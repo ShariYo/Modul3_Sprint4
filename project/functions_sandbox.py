@@ -48,7 +48,7 @@ def column_delete(df, nan_perc=40):
     df = df.drop(columns=to_del)
     print(f"Columns with > {nan_perc}% NaN values dropped: \n{to_del}")
 
-    return df
+    return df, to_del
 
 
 def feature_log(df, features):
