@@ -12,7 +12,7 @@ RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 # Copy the application code into the container
-COPY ["model.pkl", "app.py", "./"] .
+COPY "app.py" .
 
 # Expose the app port
 EXPOSE 8000
