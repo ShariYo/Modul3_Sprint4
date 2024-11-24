@@ -7,7 +7,6 @@ from fastapi import FastAPI
 
 # Expected Imput
 class LoanApplication(BaseModel):
-    sk_id_curr: int
     name_contract_type: object
     code_gender: object
     flag_own_car: object
@@ -48,26 +47,6 @@ class LoanApplication(BaseModel):
     obs_60_cnt_social_circle: int
     def_60_cnt_social_circle: int
     days_last_phone_change: float
-    flag_document_2: object
-    flag_document_3: object
-    flag_document_4: object
-    flag_document_5: object
-    flag_document_6: object
-    flag_document_7: object
-    flag_document_8: object
-    flag_document_9: object
-    flag_document_10: object
-    flag_document_11: object
-    flag_document_12: object
-    flag_document_13: object
-    flag_document_14: object
-    flag_document_15: object
-    flag_document_16: object
-    flag_document_17: object
-    flag_document_18: object
-    flag_document_19: object
-    flag_document_20: object
-    flag_document_21: object
     amt_req_credit_bureau_hour: int
     amt_req_credit_bureau_day: int
     amt_req_credit_bureau_week: int

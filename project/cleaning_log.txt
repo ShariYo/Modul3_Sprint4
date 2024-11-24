@@ -1,10 +1,36 @@
-- deleted columns with NaN values > 40%
-- changed binary-numeric features to categorical dtype
-- imputed NaNs with values using SimpleImputer
-- after imputation, features that changed to float, was reversed again to int
-- got active credits from df_bureau and merged with df_train
-- got sums of credit debts from df_bureau and merged with df_train. Transformed to ocbject with 3 classes
-- got sums of prolonged credits from df_bureau and merged with df_train. Change to dtype > object
-- created new feature "credit_to_income" and made categorical data with classes
+# df_bureau - paruostas
+# df_bureau_active, total_credit_debt, prolonged_credits - paruostas
+# deleted columns as "deleted" + 
+# "numbin" astype("category") +
+# "cat_selector", "num_selector" to select categoric and numeric data from df +
+# sand.nan_imput for df +
+# "to_int" to make df dtype(int) +
+# sand.cleaner for final check +
 
+# clean_test["days_employed"] = clean_test["days_employed"].apply(
+    # lambda x: 0 if x > 0 else x) +
 
+# to_rename for columns rename +
+
+# to_year = ["client_age", "years_employed", "years_registration", "years_id_publish"]
+# for feature in to_year:
+#     clean_test[feature] = round(clean_test[feature] / -365.25, 1) +
+
+# bureau = [active_count, total_credit_debt, prolonged_credits]
+# for feature in bureau:
+#     clean_test = clean_test.merge(feature, on="sk_id_curr", how="left") +
+
+# clean_test[["active_credit_count", "total_debt_all", "prol_credits"]] = clean_test[
+#     ["active_credit_count", "total_debt_all", "prol_credits"]
+# ].fillna(0) +
+
+# clean_test["prol_credits"] = clean_test["prol_credits"].astype(object)
+# clean_test["total_debt_all"] = clean_test["total_debt_all"].apply(
+#     lambda x: "positive" if x > 0 else ("0" if x == 0 else "negative")) +
+
+# clean_test["credit_to_income"] = clean_test["amt_credit"] / clean_test["amt_income_total"] +
+
+# turn logaritmic "to_log" -> sand.feature_log() +
+
+# drop after vif vif_drop = ["amt_credit", "amt_income_total", "amt_goods_price",
+# "obs_30_cnt_social_circle", "region_rating_client"]
