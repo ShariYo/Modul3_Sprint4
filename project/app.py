@@ -64,9 +64,6 @@ class PredictionOut(BaseModel):
     default_proba: float
 
 
-# ----------------------------------------------------------------#
-
-
 # Load model (mine is different)
 model = joblib.load(r"D:\IT_projects\Turing_Colledge\Modul3\Sprint4\project\model.pkl")
 
