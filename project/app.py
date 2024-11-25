@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 import joblib
 import pandas as pd
+import os
 import uvicorn
 from fastapi import FastAPI
 
@@ -65,7 +66,7 @@ class PredictionOut(BaseModel):
 
 
 # Load model (mine is different)
-model = joblib.load(r"D:\IT_projects\Turing_Colledge\Modul3\Sprint4\project\model.pkl")
+model = joblib.load("model.pkl")
 
 # Start the app
 app = FastAPI()
@@ -81,4 +82,5 @@ def predict(payload: LoanApplication):
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8080)
+    port = int(os.getenv("PORT", 8080))
+    uvicorn.run(app, host="0.0.0.0", port=port)
