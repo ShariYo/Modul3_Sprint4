@@ -128,11 +128,11 @@ def model_result_calc(target_test, target_predicted, pos_label):
         f1 = 0
     else:
         f1 = 2 * (precision * recall) / (precision + recall)
-    print(f"Precision score: {precision:.2f}")
-    print(f"Recall score: {recall:.2f}")
-    print(f"F1 score: {f1:.2f}")
+    # print(f"Precision score: {precision:.2f}")
+    # print(f"Recall score: {recall:.2f}")
+    # print(f"F1 score: {f1:.2f}")
 
-    pass
+    return precision, recall, f1
 
 
 def reg_formula(model, X):
