@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 import numpy as np
+import scipy.stats as stats
 from statsmodels.stats.outliers_influence import variance_inflation_factor
 from sklearn.metrics import precision_score, recall_score
 from sklearn.impute import SimpleImputer
@@ -142,6 +143,34 @@ def reg_formula(model, X):
         formula += f" + {coefficients.iloc[i]:.4f}*{X.columns[i]}"
 
     return formula
+
+
+def calculate_confidence_interval(data1, data2, confidence=0.95):
+    """
+    Calculates confidence interval for the difference in means between two groups.
+
+    Parameters:
+    - data1, data2: arrays or lists of numeric values
+    - confidence: confidence level (default 0.95 for 95%)
+
+    Returns:
+    - mean_diff: Difference in means
+    - CI: Tuple of lower and upper bounds of the confidence interval
+    """
+
+    mean1, mean2 = np.mean(data1), np.mean(data2)
+    se1, se2 = stats.sem(data1), stats.sem(data2)
+
+    mean_diff = mean1 - mean2
+
+    se_diff = np.sqrt(se1**2 + se2**2)
+
+    margin_of_error = (
+        stats.t.ppf((1 + confidence) / 2, df=len(data1) + len(data2) - 2) * se_diff
+    )
+    CI = (mean_diff - margin_of_error, mean_diff + margin_of_error)
+
+    return mean_diff, CI
 
 
 def f_histogram(
